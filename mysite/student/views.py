@@ -3,11 +3,18 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.shortcuts import render
+from student.models import Student
 
 
 def index(request):
-    return render(request, 'student/index.html', {})
-    
+    num_students = Student.objects.all().count()
+
+    context = {
+        'num_students':num_students,
+    }
+    return render(request, 'student/index.html', context=context)
+
 def user_list(request):
     return render(request, 'student/user_list.html')
 

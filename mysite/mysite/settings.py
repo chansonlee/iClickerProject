@@ -32,6 +32,7 @@ ASGI_APPLICATION = 'mysite.routing.application'
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'student',
-    'channels',
+    'channels'
 ]
+
 
 
 MIDDLEWARE = [
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +126,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 ASGI_APPLICATION = 'mysite.routing.application'
+
+LOGIN_REDIRECT_URL = '/'

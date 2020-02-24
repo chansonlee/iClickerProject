@@ -6,6 +6,8 @@ urlpatterns = [
     url(r'^log_in/$', log_in, name='log_in'),
     url(r'^log_out/$', log_out, name='log_out'),
     url(r'^$', user_list, name='user_list')
+]
 
-
+urlpatterns = [
+    path('', views.index, name='index'),
 ]
